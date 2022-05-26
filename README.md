@@ -1,7 +1,6 @@
 # Say-Cheese
 ### By Williams Oditi
 ## Table of contents
----
 + [Description](#Description)
 + [Installation process](#installation-process)
 + [Technologies used](#technologies-used)
