@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'Say_cheese.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Say_cheese',
+        'NAME': 'say_cheese',
         'USER': 'moringa',
         'PASSWORD': 'Access',
     }
