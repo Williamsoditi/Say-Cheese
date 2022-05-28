@@ -23,10 +23,10 @@ class Category(models.Model):
         return cls.objects.all()
 
 class Location(models.Model):
-    loc = models.CharField(max_length=50)
+    locate = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.loc
+        return self.locate
         
     def save_location(self):
         self.save()
@@ -36,7 +36,7 @@ class Location(models.Model):
 
     @classmethod
     def update_location(cls,id,name):
-        cls.objects.filter(id = id).update(loc = name)
+        cls.objects.filter(id = id).update(locate = name)
 
     @classmethod
     def display_all_locations(cls):
