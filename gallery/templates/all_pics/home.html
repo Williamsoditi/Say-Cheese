@@ -4,8 +4,54 @@
 {{block.super}}
 
 <div class="container">
-    <h1>Kijana ! Kazi safi</h1>
-</div>
+    <div>
+        <h1 class="text-center">Welcome to <strong>Say-Cheese !</strong></h1>
+        <p class="text-center">Where all your favorite photos are kept in check</p>
+    </div>
+    <div class="row pt-4">
+        {% for photo in Picture%}
+        <div class = "col-md-4" data-toggle ="modal" data-target="#showPictureModal{{photo.id}}">
+            <img src="{{photo.image.url}}" alt="" class="img-responsive">
+        </div>
 
+        <!-- MODAL -->
+        <div class="modal fade" id="showPictureModal{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title text-center" id="modalPictureTitle">{{photo.name}}</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- MODAL BODY -->
+                    <div class="modal-body">
+                        <img src="{{photo.image.url}}" alt="{{photo.name}}" class="img-fluid img-thumbnail">
+                        <p class="text-center mt-3"><strong>About this photo:&nbsp;</strong>{{ photo.description }}</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p><strong>Category:&nbsp;</strong>{{photo.category}}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p><strong>Location:&nbsp;</strong>{{photo.location}}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p><strong>Date Taken:&nbsp;</strong>{{photo.post_date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MODAL FOOTER -->
+                    <div class="modal-footer">
+                        <p class="text-center">Double click to copy this link</p>
+                        <input type="text" class="form-control" value="{{photo.image.url}}" id="{{photo.id}}.url">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
