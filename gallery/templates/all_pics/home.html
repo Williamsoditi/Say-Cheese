@@ -6,7 +6,7 @@
 <div class="container">
     <div>
         <h1 class="text-center">Welcome to <strong>Say-Cheese !</strong></h1>
-        <p class="text-center">Where all your favorite photos are kept in check</p>
+        <p class="text-center main">Where all your favorite photos are kept in check</p>
     </div>
     <div class="row pt-4">
         {% for photo in Picture%}
@@ -26,7 +26,7 @@
                     </div>
                     <!-- MODAL BODY -->
                     <div class="modal-body">
-                        <img src="{{photo.image.url}}" alt="{{photo.name}}" class="img-fluid img-thumbnail">
+                        <img src="{{photo.image.url}}" alt="{{photo.name}}" class="img-fluid img-thumbnail" height="200px" width="200px">
                         <p class="text-center mt-3"><strong>About this photo:&nbsp;</strong>{{ photo.description }}</p>
                         <hr>
                         <div class="row">
@@ -47,7 +47,6 @@
                         <input type="text" class="form-control" value="{{photo.image.url}}" id="{{photo.id}}.url">
                     </div>
                 </div>
-
             </div>
         </div>
         {% endfor %}
@@ -55,3 +54,4 @@
 </div>
 
 {% endblock %}
+
