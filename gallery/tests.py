@@ -1,4 +1,6 @@
 from ast import Load
+from email.mime import image
+from unicodedata import category, name
 from django.test import TestCase
 from .models import Pictures, Category, Location
 
@@ -33,8 +35,27 @@ class LocationTestClass(TestCase):
         update = Location.objects.get(locate = 'alice')
         self.assertTrue(update.locate, 'alice')
 
+#PictureTestClass
+class PictureTestClass(TestCase):
+    def setUp(self):
+        self.sports = Category(name = 'sports')
+        self.strathmore = Location(locate = 'Strathmore')
+        self.williams = Pictures(image = 'image.png', name = 'chilling', description = 'after the dub', category = self.sports, location = self.strathmore, post_date = None)
 
+    def test_pic_instance(self):
+        '''
+        Test to confirm whether the new image created is an instance of the Image class
+        '''
+        self.assertTrue(isinstance(self.williams, Pictures))
 
+    def test_save_pic(self):
+        self.sports.save_category()
+        self.strathmore.save_location()
+        self.williams.save_picture()
+        pic = Pictures.objects.all()
+        self.assertEqual(len(pic)>0,1)
+
+#CategoryTestClass
 class CategoryTestClass(TestCase):
     def setUp(self):
         self.sports = Category(name = 'sports')
