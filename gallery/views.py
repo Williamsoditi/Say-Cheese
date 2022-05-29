@@ -22,7 +22,7 @@ def search_results(request):
         return render(request, 'all_pics/search.html',{"message":message,"pictures": searched_pictures})
 
     else:
-        message = "You haven't searched for any category"
+        message = "You haven't searched for any category. Please input a correct category"
         return render(request, 'all_pics/search.html',{"message":message})
 
 def pictures(request,pictures_id):
