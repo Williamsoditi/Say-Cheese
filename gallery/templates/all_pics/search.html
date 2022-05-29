@@ -14,11 +14,13 @@
         {% if pictures %}
             {% for pictures in pictures %}
             <div class="col-sm-6">
-              <img height="300" width="400" src = '{{pictures.image.url}}'>
+              <img class="img-fluid img-thumbnail" src = '{{pictures.image.url}}'>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-center">
               <h2>{{pictures.name}}</h2>
               <p>{{pictures.description}}</p>
+              <p><strong>Taken at:</strong>&nbsp;{{pictures.location}}</p>
+              <p><strong>Snapped at:</strong>&nbsp;{{pictures.post_date}}</p>
             </div>
             {% endfor %}
       {% endif %}
